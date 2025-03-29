@@ -1,15 +1,40 @@
-/*
-Author: Reviona Destine
-Date: 29/03/2025
-Tool used: Google Bigquery & Looker Data Studio 
-*/
+# **Virtual Internship Experience: Big Data Analytics - Kimia Farma**
+Tool : Google Bigquery & Looker Data Studio - [Lihat script](https://github.com/faizns/VIX-Big-Data-Analytics-Kimia-Farma/blob/a4da84f3d2fb45693599c279747cabf271cfd866/vix_kimia_farma_script.sql) <br>
+Visualization : Looker Data Studio - [Lihat dashboard](https://lookerstudio.google.com/s/rvUSovORG5s) <br>
+Dataset : [Rakamin KF Analytics](https://console.cloud.google.com/bigquery?hl=id&invt=AbtVlQ&project=rakamin-kf-analytics-454818-v3&ws=!1m5!1m4!4m3!1srakamin-kf-analytics-454818-v3!2skimia_farma!3skf_analisa)
+<br>
 
-/*
---------------------------
-Bigquery Syntax
---------------------------
-*/
+---
 
+## 📂 **Introduction**
+Big Data Analytics Kimia Farma merupakan virtual internship experience yang difasilitasi oleh [Rakamin Academy](https://www.rakamin.com/virtual-internship-experience/kimiafarma-big-data-analytics-virtual-internship-program). Pada project ini saya berperan sebagai Data Analyst Intern yang diminta untuk menganalisis dan membuat laporan penjualan perusahaan menggunakan data-data yang telah disediakan. Dari project ini, saya juga banyak belajar tentang data data warehouse, dataleke, dan datamart. <br>
+<br>
+
+**Objectives**
+- Membuat design datamart (tabel base dan tabel aggregat)
+- Membuat visualisasi/dashboard laporan penjualan perusahaan
+<br>
+
+**Dataset** <br>
+Dataset yang disediakan terdiri dari tabel-tabel berikut:
+- Final Transaction
+- Inventory
+- Kantor cabang
+- Product
+<br>
+
+---
+
+
+## 📂 **Design Datamart**
+### Tabel Base
+Tabel base adalah tabel yang berisi data asli atau data mentah yang dikumpulkan dari sumbernya dan berisi informasi yang dibutuhkan untuk menjawab pertanyaan atau menyeselasikan masalah tertentu. Tabel base dalam project ini dibuat dari aggregasi data final transaction, inventory, kantor cabang, dan product. <br>
+
+<details>
+  <summary> Klik untuk melihat Query </summary>
+    <br>
+    
+```sql
 CREATE TABLE `kimia_farma.analisa_percobaan` AS
 SELECT
   ft.transaction_id,
@@ -49,3 +74,6 @@ ft.rating AS rating_transaction
 FROM `rakamin-kf-analytics-454818-v3.kimia_farma.kf_final_transaction` AS ft
 JOIN `rakamin-kf-analytics-454818-v3.kimia_farma.kf_kantor_cabang` AS kc ON kc.branch_id = ft.branch_id
 JOIN `rakamin-kf-analytics-454818-v3.kimia_farma.kf_product` AS p ON p.product_id = ft.product_id;
+--- 
+
+
